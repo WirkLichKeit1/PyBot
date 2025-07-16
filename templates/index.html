@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Menu Principal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="toggle-theme" class="toggle-btn" onclick="alternarTema()">🌓</button>
+
+    <div class="welcome-container">
+      <h1>Bem-vindo(a) ao PyBot! 🚀</h1>
+      <p>Escolha uma das funções abaixo para começar:</p>
+    </div>
+
+    <div class="card-container">
+      <a href="/tradutor" class="feature-card">🌐 Tradutor</a>
+      <a href="/chat" class="feature-card">🧠 Chat</a>
+      <a href="/codigo" class="feature-card">🔢 Código</a>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 PyBot. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
