@@ -34,7 +34,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--fundo);
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
   color: var(--texto);
   font-family: Arial, sans-serif;
   display: flex;
