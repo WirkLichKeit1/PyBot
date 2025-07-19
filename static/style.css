@@ -1,0 +1,462 @@
+/* =======================
+   RESET E VARIÁVEIS
+========================== */
+:root {
+  --borda: #ccc;
+  --texto: #333;
+  --input-bg: #ffffff;
+  --caixa: #f0f0f0;
+  --botao: #3498db;
+  --botao-hover: #2980b9;
+}
+
+.dark-mode {
+  --borda: #444;
+  --texto: #eee;
+  --input-bg: #2c2c2c;
+  --caixa: #1e1e1e;
+  --botao: #555;
+  --botao-hover: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =======================
+   LAYOUT GERAL
+========================== */
+body {
+  background: linear-gradient(to right, #f5f7fa, #c3cfe2);
+  color: var(--texto);
+  transition: background 0.3s, color 0.3s;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dark-mode {
+  background: #1e1e1e !important;
+  color: var(--texto);
+}
+
+.container {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+}
+
+/* =======================
+   TÍTULO E TEMA
+========================== */
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* =======================
+   BOTÕES
+========================== */
+button {
+  background-color: var(--botao);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0.5rem 0.3rem;
+}
+
+button:hover {
+  background-color: var(--botao-hover);
+}
+
+/* =======================
+   SAÍDA
+========================== */
+#saida,
+.output-box {
+  background-color: var(--caixa);
+  color: var(--texto);
+  padding: 12px;
+  border-radius: 10px;
+  margin: 15px 0;
+  white-space: pre-line;
+  font-weight: bold;
+  border: 1px solid var(--borda);
+  min-height: 50px;
+}
+
+/* Container com botão ao lado da saída */
+.saida-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+/* =======================
+   CHAT
+========================== */
+.chat-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: var(--input-bg);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+}
+
+.chat-box {
+  height: 380px;
+  overflow-y: auto;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  background: var(--input-bg);
+  white-space: pre-wrap;
+  text-align: left;
+}
+
+.chat-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+input#mensagem {
+  flex: 1;
+  padding: 0.7rem;
+  border-radius: 6px;
+  border: 1px solid var(--borda);
+  background: var(--input-bg);
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+/* =======================
+   TRADUTOR
+========================== */
+.select-row {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.select-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  texte-align: left;
+}
+
+.select-box label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 7px;
+}
+
+.select-custom {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  background-color: var(--input-bg);
+  color: var(--texto);
+  font-size: 1rem;
+  width: 150px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+#texto-a-traduzir {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  border: 1px solid var(--borda);
+  background-color: var(--input-bg);
+  color: var(--texto);
+  font-size: 1rem;
+}
+
+/* =======================
+   BOTÃO DE VOLTAR
+========================== */
+.back-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.back-button-container button {
+  background-color: var(--botao);
+  color: white;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.back-button-container button:hover {
+  background-color: var(--botao-hover);
+}
+
+/* =======================
+   MENU DE NAVEGAÇÃO
+========================== */
+/* Botão de três pontinhos */
+.menu-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: transparent;
+  color: var(--texto);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.menu-toggle:hover {
+  transform: scale(1.2);
+}
+
+/* Menu de navegação */
+.nav-menu {
+  position: absolute;
+  top: 80px;
+  left: 10px;
+  background-color: var(--caixa);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none; /* Inicialmente invisível */
+  flex-direction: column;
+  gap: 10px;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  transform: translateY(-20px); /* Animação de entrada */
+}
+
+.nav-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0); /* Aparece com movimento suave */
+}
+
+.nav-menu button {
+  background-color: var(--botao);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-menu button:hover {
+  background-color: var(--botao-hover);
+}
+
+/* =======================
+   NOVOS ELEMENTOS DA PÁGINA PRINCIPAL
+========================== */
+
+/* Boas-vindas */
+.welcome-container {
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+  padding: 30px;
+  background-color: var(--caixa);
+  border-radius: 12px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.welcome-container h1 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* Cards de Navegação */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.feature-card {
+  background-color: var(--caixa);
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--texto);
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  background-color: var(--botao-hover);
+}
+
+/* Frase Motivacional */
+.quote {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--texto);
+  margin-top: 30px;
+  font-style: italic;
+}
+
+/* =======================
+   RODAPÉ
+========================== */
+.footer {
+  background-color: var(--caixa);
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--texto);
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: var(--botao);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.mensagens {
+  list-style: none;
+  padding: 0;
+  margin: 1em 0;
+}
+
+.mensagens li {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.mensagens li.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mensagens li.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* =======================
+   RESPONSIVO
+========================== */
+@media (max-width: 600px) {
+  .chat-controls {
+    flex-direction: column;
+  }
+
+  input#mensagem {
+    width: 100%;
+  }
+
+  .chat-controls button {
+    width: 100%;
+  }
+
+  .select-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .select-box {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .select-box label {
+    margin-top: 12px;
+  }
+  
+  .select-custom {
+    width: 100%;
+  }
+
+  .nav-menu {
+    top: 80px;
+    left: 10px;
+    gap: 6px;
+  }
+}
