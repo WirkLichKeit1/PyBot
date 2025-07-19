@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='cadastro.css') }}"/>
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="top-left">
+    <button id="toggle-theme" class="toggle-btn" onclick="alternarTema()">🌓</button>
+  </div>
+  
+  <div class="top-right">
+    <a href="/login" class="login-icon" title="Fazer Login">👤</a>
+  </div>
+
+  <div class="cadastro-container">
+    <h1>Cadastro</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="mensagens">
+          {% for categoria, msg in messages %}
+            <li class="{{ categoria }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/cadastro" method="POST">
+      <input type="text" name="usuario" placeholder="Usuário" required>
+      <input type="text" name="email" placeholder="E-mail" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit" class="botao-cadastrar">Cadastrar</button>
+    </form>
+    
+    <p>Já tem uma conta? <a href="/login">Entrar</a></p>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 PyBot. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
