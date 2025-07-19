@@ -19,14 +19,23 @@ def cadastrar_usuario():
   email = input("Digite o email: ")
   senha = input("Digite a senha: ")
 
-  cursor.execute("INSERT INTO usuarios (nome, idade, email, senha) VALUES (?,?,?,?)", (nome, idade, email, senha))
-  conn.commit()
-  print(f"usuário {nome} cadastrado com sucesso!\n")
+  cursor.execute("SELECT email, senha FROM usuarios")
+  user_x = cursor.fetchall()
+
+  if any(email == u[0] for u in user_x):
+    print("email já existente.")
+  elif any(senha == u[1] for u in user_x):
+    print("Essa senha já está sendo usado por outro usuário.")
+  else:
+    cursor.execute("INSERT INTO usuarios (nome, idade, email, senha) VALUES (?,?,?,?)", (nome, idade, email, senha))
+    conn.commit()
+    print(f"usuário {nome} cadastrado com sucesso!\n")
 
 def deletar():
   nome = input("Digite o nome do usuário: ")
   cursor.execute("DELETE FROM usuarios WHERE nome = ?", (nome,))
   try:
+    cursor.execute("SELECT * FROM usuarios")
     usuario = cursor.fetchall()
     if not usuario:
       print("usuário inexistente.")
@@ -47,7 +56,7 @@ def listar_usuario():
   else:
     print("LISTA:")
     for usuario in usuarios:
-      print(f"- ID {usuario[0]} | Nome: {usuario[1]} | Idade: {usuario[2]} | E-mail: {usuario[3]}")
+      print(f"- ID {usuario[0]} | Nome: {usuario[1]} | Idade: {usuario[2]} | E-mail: {usuario[3]} Senha: {usuario[4]}")
     print()
 
 def menu():
