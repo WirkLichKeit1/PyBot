@@ -1,0 +1,236 @@
+/* =======================
+   VARIÁVEIS E RESET
+========================== */
+:root {
+  --fundo: #ffffff;
+  --texto: #333;
+  --caixa: #f0f0f0;
+  --borda: #ccc;
+  --botao: #3498db;
+  --botao-hover: #2980b9;
+  --input-bg: #ffffff;
+}
+
+.dark-mode {
+  --fundo: #1e1e1e;
+  --texto: #eee;
+  --caixa: #1e1e1e;
+  --borda: #444;
+  --botao: #555;
+  --botao-hover: #444;
+  --input-bg: #2c2c2c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =======================
+   LAYOUT DO BODY
+========================== */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+
+/* =======================
+   CONTAINER DO FORMULÁRIO
+========================== */
+.cadastro-container {
+  background-color: var(--caixa);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  margin-top: -800px;
+}
+
+/* =======================
+   TÍTULO E INPUTS
+========================== */
+.cadastro-container h1 {
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.cadastro-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  color: #000;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.cadastro-container input:focus {
+  border-color: var(--botao);
+  box-shadow: 0 0 5px var(--botao);
+  outline: none;
+}
+
+/* =======================
+   BOTÃO E LINKS
+========================== */
+.cadastro-container button {
+  background-color: var(--botao);
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.cadastro-container button:hover {
+  background-color: var(--botao-hover);
+}
+
+.cadastro-container a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 0.95rem;
+  color: var(--botao);
+  text-decoration: none;
+}
+
+.cadastro-container a:hover {
+  text-decoration: underline;
+  color: var(--botao-hover);
+}
+
+/* =======================
+   MENSAGENS FLASH
+========================== */
+.mensagens {
+  list-style: none;
+  padding: 0;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.mensagens .erro {
+  color: #ff5252;
+  font-weight: bold;
+}
+
+.mensagens .sucesso {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* =======================
+   BOTÕES FIXOS (LOGIN E TEMA)
+========================== */
+.top-left {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.top-right {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.login-icon {
+  font-size: 24px;
+  text-decoration: none;
+  color: var(--texto);
+  padding: 8px;
+  border-radius: 50%;
+  background-color: var(--caixa);
+  transition: background-color 0.3s;
+}
+
+.login-icon:hover {
+  background-color: var(--botao-hover);
+  color: white;
+}
+
+.toggle-btn {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+/* =======================
+   RODAPÉ
+========================== */
+.footer {
+  background-color: var(--caixa);
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--texto);
+}
+
+.footer p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: var(--botao);
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   RESPONSIVO
+========================== */
+@media (max-width: 500px) {
+  .cadastro-container {
+    margin: 60px 20px;
+    padding: 30px 20px;
+  }
+}

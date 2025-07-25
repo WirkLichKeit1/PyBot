@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Perfil do Usuário</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='perfil.css') }}">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <button id="toggle-theme" class="toggle-btn" onclick="alternarTema()">🌓</button>
+
+  <div class="perfil-container">
+    <h1>Seu Perfil</h1>
+
+    <div class="perfil-info">
+      <p><strong>Nome:</strong> {{ nome }}</p>
+      <p><strong>Email:</strong> {{ email }}</p>
+    </div>
+
+    <div class="perfil-actions">
+      <a href="/menu" class="btn-voltar">⬅ Voltar ao Menu</a>
+      <a href="/logout" class="btn-logout">Logout</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 PyBot. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

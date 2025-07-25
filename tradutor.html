@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tradutor</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+  <div class="container">
+    <button id="toggle-theme" class="toggle-btn" onclick="alternarTema()">🌓</button>
+
+    <h1>Tradutor</h1>
+
+    <button id="menu-toggle" class="menu-toggle">⋮</button>
+
+    <div id="nav-menu" class="nav-menu">
+      <a href="/perfil"><button>Perfil</button></a>
+      <a href="/tradutor"><button>Tradutor</button></a>
+      <a href="/chat"><button>PyBot</button></a>
+      <a href="/codigo"><button>Código</button></a>
+      <a href="/mensagens"><button>Chat</button></a>
+      <a href="/logout"><button>Sair</button></a>
+    </div>
+
+    <div class="tradutor">
+      <h2>Traduzir Texto</h2>
+
+      <div class="select-row">
+        <div class="select-box">
+          <label for="idioma-origem">De:</label>
+          <select id="idioma-origem" class="select-custom">
+            <option value="en">Inglês</option>
+            <option value="pt">Português</option>
+            <option value="es">Espanhol</option>
+            <option value="fr">Francês</option>
+            <option value="de">Alemão</option>
+            <option value="it">Italiano</option>
+            <option value="ja">Japonês</option>
+            <option value="zh-CN">Chinês</option>
+          </select>
+        </div>
+
+        <div class="select-box">
+          <label for="idioma-destino">Para:</label>
+          <select id="idioma-destino" class="select-custom">
+            <option value="pt">Português</option>
+            <option value="en">Inglês</option>
+            <option value="es">Espanhol</option>
+            <option value="fr">Francês</option>
+            <option value="de">Alemão</option>
+            <option value="it">Italiano</option>
+            <option value="ja">Japonês</option>
+            <option value="zh-CN">Chinês</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label for="texto-a-traduzir"></label>
+        <input type="text" id="texto-a-traduzir" placeholder="Digite o texto..." />
+      </div>
+
+      <div id="saida" class="output-box"></div>
+    </div>
+
+    <div class="back-button-container">
+      <button onclick="window.location.href='/menu'">Voltar</button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 PyBot. Todos os direitos reservados.</p>
+      <ul class="footer-links">
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+        <li><a href="#">Política de Privacidade</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

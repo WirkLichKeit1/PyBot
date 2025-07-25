@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mensagens</title>
+  <link rel="stylesheet" href="{{url_for('static', filename='mensagens.css')}}">
+</head>
+<body data-user-id="{{ usuario_id }}">
+
+  <a href="/menu" class="back-button">← Voltar</a>
+
+  <div class="msg-container">
+    <h1>Mensagens</h1>
+
+    <form id="form-seletor" method="get" action="/mensagens">
+      <label for="contato_id"></label>
+      <select name="contato_id" id="contato_id" onchange="this.form.submit()">
+        {% for id, nome in usuarios %}
+          <option value="{{ id }}" {% if id == contato_id %}selected{% endif %}>{{ nome }}</option>
+        {% endfor %}
+      </select>
+    </form>
+
+    <div class="chat-box" id="chat-box"></div>
+
+    {% if contato_id %}
+    <form id="form-envio">
+      <input type="text" id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required />
+      <button type="submit">➤</button>
+    </form>
+    {% endif %}
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+  <script src="{{url_for('static', filename='mensagens.js')}}"></script>
+</body>
+</html>
